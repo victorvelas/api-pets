@@ -1,10 +1,10 @@
 {
 	"name": "api-pets",
 	"version": "0.0.1",
-	"description": "",
-	"author": "",
+	"description": "API para gestionar a los consentidos cuadrúpedos del hogar.",
+	"author": "Victor Velas",
 	"private": true,
-	"license": "UNLICENSED",
+	"license": "MIT",
 	"scripts": {
 		"build": "nest build",
 		"format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
