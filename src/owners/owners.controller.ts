@@ -37,16 +37,18 @@ export class OwnersController {
 		return { success: true};
 	}
 
-	@Put('/save')
-	public update(@Req() req) 
+	@Put('/save/:id')
+	public update(@Param('id') id:Number, @Req() data) 
 	{
-		return {};
+		this.service.update(id, data);
+		return { success: true };
 	}
-
-	@Delete('/save')
-	public delete(@Req() req) 
+	
+	@Delete('/save/:id')
+	public delete(@Param('id') id:Number)
 	{
-		return {};
+		this.service.delete(id);
+		return { success: true };
 	}
 
 }

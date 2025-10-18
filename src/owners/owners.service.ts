@@ -42,8 +42,30 @@ export class OwnersService {
 
     public save(newOwner: any) 
     {
+        this.list.push({
+            ...newOwner,
+            id: this.list.length,
+            active: true,
+        });
         newOwner.id = this.list.length;
         newOwner.active = true;
         this.list.push(newOwner);
+    }
+
+    public update(id:Number, newOwner: any) 
+    {
+        let userIndex = this.list.findIndex(item => item.id === parseInt(id.toString()));
+        const ow = this.list[userIndex];
+        if (newOwner.name?.trim() !== '') { ow.name = newOwner.name?.trim(); }
+        if (newOwner.age?.trim() !== '') { ow.age = parseInt(newOwner.age); }
+        this.list[userIndex] = (ow);
+        return true
+    }
+
+    public delete(id:Number) 
+    {
+        const index = this.list.findIndex(item => item.id === parseInt(id.toString()));
+        this.list.splice(index, 1);
+        return true
     }
 }
